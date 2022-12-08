@@ -1,6 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require("../db/connection.js");
 const Schema = mongoose.Schema;
-const Links = require("./Links")
 
 const contactSchema = new Schema({
     name: String,
