@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Links = require("./links")
+const Links = require("./Links")
 
 const contactSchema = new Schema({
     name: String,
