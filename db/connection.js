@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 require("dotenv").config();
-
+mongoose.set('strictQuery', false)
 mongoose.Promise = Promise;
 
 const mongoURI= process.env.DATABASE_URL;
