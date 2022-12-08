@@ -8,7 +8,6 @@ const contactSchema = new Schema({
     email: String,
     gitHub: String,
     linkedIn: String,
-    links: [Links]
 })
 
-module.exports =  mongoose.model("Contact", dateSchema)
+module.exports =  mongoose.model("Contact", contactSchema)
