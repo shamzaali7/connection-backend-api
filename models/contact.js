@@ -1,6 +1,9 @@
-const mongoose = require("mongoose");
+const mongoose = require("../db/connection.js");
 const Schema = mongoose.Schema;
-const Links = require("./Links")
+
+const linkSchema = new Schema({
+    newSocial: String
+})
 
 const contactSchema = new Schema({
     name: String,
@@ -8,6 +11,7 @@ const contactSchema = new Schema({
     email: String,
     gitHub: String,
     linkedIn: String,
+    links: [linkSchema]
 })
 
 module.exports =  mongoose.model("Contact", contactSchema)

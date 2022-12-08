@@ -14,10 +14,60 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:name", async (req, res, next) => {
     try{
-        const oneContact = await Contact.findOne(req.body.name.replace("%20", " "))
+        const oneContact = await Contact.findOne({name: req.params.name.replace("%20", " ")})
         res.status(200).json(oneContact)
     }catch(err){
         next(err)
     }
 })
 
+router.post("/", async (req, res, next) => {
+    try{
+        const newContact = await Contact.create({
+            name: req.body.name,
+            connection: req.body.connection,
+            email: req.body.email,
+            gitHub: req.body.gitHub,
+            linkedIn: req.body.linkedIn,
+            links: req.body.links
+        });
+        res.status(200).json(newContact)
+    }catch(err){
+        next(err)
+    }
+})
+
+router.delete("/",  async (req, res, next) => {
+    try{
+        const deletedContact = await Contact.findOneAndDelete({_id : req.body._id})
+        if(deletedContact){
+            res.status(200).json(deletedContact)
+        }else{
+            res.status(404)
+        }
+    }catch(err){
+        next(err)
+    }
+})
+
+router.patch("/", async (req, res, next) => {
+    try{
+        const updatedContact = await Contact.findOneAndUpdate({_id: req.body.id}, {
+            name: req.body.name,
+            connection: req.body.connection,
+            email: req.body.email, 
+            gitHub: req.body.gitHub,
+            linkedIn: req.body.linkedIn,
+            links: req.body.links
+        }, {new: true})
+        if(updatedContact){
+            res.status(200).json(updatedContact)
+        }else{
+            res.status(404)
+        }
+    }catch(err){
+        next(err)
+    }
+})
+
+module.exports = router

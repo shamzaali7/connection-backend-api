@@ -1,25 +1,29 @@
 const express = require("express");
 const app = express();
-const cors = require("cors");
-const contactController = require('./controller/contactController')
-const parser = require("body-parser")
-
 app.set("port", process.env.PORT || 4000);
+const cors = require("cors");
+
 
 app.use(cors({
     origin: "*"
 }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.use(parser.urlencoded({ extended: true}));
-app.use(parser.json());
 
 app.get("/", (req, res) => {
-    res.redirect("api/contacts")
-   
+    res.redirect("api/contact")
 });
+const contactController = require('./controllers/contactController')
+app.use("/api/contact", contactController);
+// const linkController = require('./controllers/linkController')
+// app.use("/api/link", linkController);
 
-app.use("/api/contacts", contactController);
 
-app.listen(app.get("port"), () => {
-    console.log('server is running')
-});
+if(!module.parent){
+	app.listen(app.get('port'), () => {
+		console.log(`✅ PORT: ${app.get('port')} 🌟`);
+	})
+};
+
+module.exports = app

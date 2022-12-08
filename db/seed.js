@@ -1,8 +1,9 @@
 const mongoose = require("./connection")
 const Contact = require("../models/Contact")
-const Link = require("../models/Links")
+// const Link = require("../models/Link")
 const contactSeed = require("./contactSeed.json")
-const linkSeed = require("./linkSeed.json")
+// const linkSeed = require("./linkSeed.json")
+
 
 Contact.deleteMany({})
     .then(() => contactSeed.map(contact => 
@@ -12,3 +13,10 @@ Contact.deleteMany({})
     .then(res => console.log(res))
     .then(err => console.log(err))
 
+// Link.deleteMany({})
+//     .then(() => linkSeed.map(link => 
+//         link
+//     ))
+//     .then(res => Link.insertMany(res))
+//     .then(res => console.log(res))
+//     .then(err => console.log(err))
