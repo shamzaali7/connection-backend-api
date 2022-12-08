@@ -4,13 +4,26 @@
         "connection": "idk random dude",
         "email": "personRandomDude@gmail.com",
         "github": "personRandomDude@github.com",
-        "linkedIn": "personRandomDude@linkedIn.com"
+        "linkedIn": "personRandomDude@linkedIn.com",
+        "links": [
+            {
+                "newSocial": "facebook.com/personRandomDude"
+            }
+        ]
     },
     {
         "name": "person2",
         "connection": "idk random dude2",
         "email": "personRandomDude2@gmail.com",
         "github": "personRandomDude2@github.com",
-        "linkedIn": "personRandomDude2@linkedIn.com"
+        "linkedIn": "personRandomDude2@linkedIn.com",
+        "links": [
+            {
+                "newSocial": "twitter.com/personRandomDude2"
+            },
+            {
+                "newSocial": "instagram.com/personRandomDude2"
+            }
+        ]
     }
 ]
