@@ -3,7 +3,13 @@ require("dotenv").config();
 mongoose.set('strictQuery', false)
 mongoose.Promise = Promise;
 
-const mongoURI= process.env.DATABASE_URL;
+let mongoURI = "";
+
+if (process.env.NODE_ENV === "production"){
+    mongoURI = process.env.DATABASE_URL
+}else{
+    mongoURI = "mongodb://localhost/connection"
+}
 
 mongoose
     .connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
