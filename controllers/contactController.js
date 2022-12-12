@@ -38,7 +38,7 @@ router.post("/", async (req, res, next) => {
 
 router.delete("/",  async (req, res, next) => {
     try{
-        const deletedContact = await Contact.findOneAndDelete({_id : req.body.id})
+        const deletedContact = await Contact.findOneAndDelete({_id : req.body._id})
         if(deletedContact){
             res.status(200).json(deletedContact)
         }else{
@@ -51,7 +51,7 @@ router.delete("/",  async (req, res, next) => {
 
 router.patch("/", async (req, res, next) => {
     try{
-        const updatedContact = await Contact.findOneAndUpdate(req.params.id, {
+        const updatedContact = await Contact.findOneAndUpdate({_id: req.params.id}, {
             name: req.body.name,
             connection: req.body.connection,
             email: req.body.email, 
