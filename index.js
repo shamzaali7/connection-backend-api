@@ -12,8 +12,8 @@ app.use(function(req, res, next) {
 });
 
 app.use(cors({
-    origin : "http://localhost:3000/",
-	methods: "GET, POST, PATCH, PUT, DELETE"
+    origin : ["http://localhost:3000/", "*"],
+	methods: ["GET", "POST", "PATCH", "PUT", "DELETE"]
 }))
 
 app.use(express.json());
