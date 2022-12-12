@@ -3,10 +3,11 @@ const app = express();
 app.set("port", process.env.PORT || 4000);
 const cors = require("cors");
 
+header('Access-Control-Allow-Origin: *')
+header('Access-Control-Allow-Methods: GET, POST, PATCH, DELETE')
+header('Access-Control-Allow-Headers: Content-Type, X-Auth-Token, Origin, Authorization')
 
-app.use(cors({
-    origin: "*"
-}))
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

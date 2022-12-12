@@ -2,8 +2,8 @@ const mongoose = require("mongoose")
 require("dotenv").config();
 mongoose.set('strictQuery', false)
 mongoose.Promise = Promise;
-let host = process.env.Host || "0.0.0.0";
-let port = process.env.PORT || 8080;
+
+
 let mongoURI = "";
 
 if (process.env.NODE_ENV === "production"){
