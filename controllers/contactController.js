@@ -27,7 +27,7 @@ router.post("/", async (req, res, next) => {
             name: req.body.name,
             connection: req.body.connection,
             email: req.body.email,
-            gitHub: req.body.gitHub,
+            github: req.body.github,
             linkedIn: req.body.linkedIn,
             links: req.body.links
         });
@@ -57,7 +57,7 @@ router.put("/", async (req, res, next) => {
             name: req.body.name,
             connection: req.body.connection,
             email: req.body.email, 
-            gitHub: req.body.gitHub,
+            github: req.body.github,
             linkedIn: req.body.linkedIn,
             links: req.body.links
         }, {new: true})
