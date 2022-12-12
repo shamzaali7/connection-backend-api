@@ -14,6 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
     res.redirect("api/contact")
 });
+
+
 const contactController = require('./controllers/contactController')
 app.use("/api/contact", contactController);
 // const linkController = require('./controllers/linkController')
