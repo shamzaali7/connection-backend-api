@@ -12,7 +12,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(cors({
-    origin : "*",
+    origin : "http://localhost:3000/",
 	methods: "GET, POST, PATCH, PUT, DELETE"
 }))
 
