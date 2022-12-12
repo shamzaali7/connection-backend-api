@@ -52,6 +52,7 @@ router.delete("/",  async (req, res, next) => {
 
 router.put("/", async (req, res, next) => {
     try{
+        console.log("im inside the put function")
         const updatedContact = await Contact.findOneAndUpdate({_id: req.body.id}, {
             name: req.body.name,
             connection: req.body.connection,
