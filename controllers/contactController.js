@@ -49,7 +49,7 @@ router.delete("/",  async (req, res, next) => {
     }
 })
 
-router.patch("/", async (req, res, next) => {
+router.put("/", async (req, res, next) => {
     try{
         const updatedContact = await Contact.findOneAndUpdate({_id: req.body.id}, {
             name: req.body.name,
