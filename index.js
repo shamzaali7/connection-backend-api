@@ -5,7 +5,8 @@ const cors = require("cors");
 
 
 app.use(cors({
-    origin: "*"
+    origin: "*",
+	methods: "GET, POST, PATCH, PUT, DELETE"
 }))
 
 app.use(express.json());
