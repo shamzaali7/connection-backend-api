@@ -9,7 +9,7 @@ const contactSchema = new Schema({
     name: String,
     connection: String,
     email: String,
-    gitHub: String,
+    github: String,
     linkedIn: String,
     links: [linkSchema]
 })
