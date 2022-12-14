@@ -23,6 +23,8 @@ router.get("/:name", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
     try{
+        console.log("im inside the put function")
+        console.log(`req.body: `, req.body)
         const newContact = await Contact.create({
             name: req.body.name,
             connection: req.body.connection,
