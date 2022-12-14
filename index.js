@@ -1,8 +1,8 @@
 
 
-const config = require ("../Firebase/index");
-const userRouter = require ("../Firebase/user");
-const Auth = require('../Firebase/authenticate')
+const config = require ("./Firebase/index");
+const userRouter = require ("./Firebase/user");
+const Auth = require('./Firebase/authenticate')
 const express = require("express");
 const app = express();
 app.set("port", process.env.PORT || 4000);
