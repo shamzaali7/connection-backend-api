@@ -1,32 +1,25 @@
+
+
+const config = require ("../Firebase/index");
+const userRouter = require ("../Firebase/user");
+const Auth = require('../Firebase/authenticate')
 const express = require("express");
 const app = express();
 app.set("port", process.env.PORT || 4000);
 const cors = require("cors");
 
-// app.use(function(req, res, next) {
-//     res.setHeader('Access-Control-Allow-Origin', '*');
-//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-//     res.setHeader('Access-Control-Allow-Credentials', true);
-//     next();
-// });
+
 
 app.use(cors({
-    "origin" : "*",
-	"methods": "GET, POST, PATCH, PUT, DELETE",
-	"preflightContinue": false,
-	"optionsSuccessStatus": 204
+    origin: "*"
 }))
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(Auth.authenticate)
 
 app.get("/", (req, res) => {
     res.redirect("api/contact")
 });
-
-
 const contactController = require('./controllers/contactController')
 app.use("/api/contact", contactController);
 // const linkController = require('./controllers/linkController')
