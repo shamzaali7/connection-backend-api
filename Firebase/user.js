@@ -1,48 +1,48 @@
-const express = require ("express");
-const authenticate = require ("./authenticate");
-const firebaseAdmin = require ("./firebase");
+// const express = require ("express");
+// const authenticate = require ("./authenticate");
+// const firebaseAdmin = require ("./firebase");
 
-const router = express.Router();
+// const router = express.Router();
 
-router.get("/auth", authenticate, async (req, res) => {
-  res.status(200).json(req.user);
-});
+// router.get("/auth", authenticate, async (req, res) => {
+//   res.status(200).json(req.user);
+// });
 
-router.post("/auth", async (req, res) => {
-  const { email, name, password } = req.body;
+// router.post("/auth", async (req, res) => {
+//   const { email, name, password } = req.body;
 
-  if (!email || !name || !password) {
-    return res.status(400).json({
-      error:
-        "Invalid request body. Must contain email, password, and name for user."
-    });
-  }
+//   if (!email || !name || !password) {
+//     return res.status(400).json({
+//       error:
+//         "Invalid request body. Must contain email, password, and name for user."
+//     });
+//   }
 
-  try {
-    const newFirebaseUser = await firebaseAdmin.auth.createUser({
-      email,
-      password
-    });
+//   try {
+//     const newFirebaseUser = await firebaseAdmin.auth.createUser({
+//       email,
+//       password
+//     });
 
-    if (newFirebaseUser) {
-      const userCollection = req.app.locals.db.collection("user");
-      await userCollection.insertOne({
-        email,
-        name,
-        firebaseId: newFirebaseUser.uid
-      });
-    }
-    return res
-      .status(200)
-      .json({ success: "Account created successfully. Please sign in." });
-  } catch (err) {
-    if (err.code === "auth/email-already-exists") {
-      return res
-        .status(400)
-        .json({ error: "User account already exists at email address." });
-    }
-    return res.status(500).json({ error: "Server error. Please try again" });
-  }
-});
+//     if (newFirebaseUser) {
+//       const userCollection = req.app.locals.db.collection("user");
+//       await userCollection.insertOne({
+//         email,
+//         name,
+//         firebaseId: newFirebaseUser.uid
+//       });
+//     }
+//     return res
+//       .status(200)
+//       .json({ success: "Account created successfully. Please sign in." });
+//   } catch (err) {
+//     if (err.code === "auth/email-already-exists") {
+//       return res
+//         .status(400)
+//         .json({ error: "User account already exists at email address." });
+//     }
+//     return res.status(500).json({ error: "Server error. Please try again" });
+//   }
+// });
 
-export default router;
+// export default router;
