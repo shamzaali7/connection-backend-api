@@ -1,8 +1,8 @@
 
 
-const config = require ("./Firebase/index");
-const userRouter = require ("./Firebase/user");
-const Auth = require('./Firebase/authenticate')
+// const config = require ("./Firebase/index");
+// const userRouter = require ("./Firebase/user");
+// const Auth = require('./Firebase/authenticate')
 const express = require("express");
 const app = express();
 app.set("port", process.env.PORT || 4000);
@@ -15,7 +15,7 @@ app.use(cors({
 }))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(Auth.authenticate)
+// app.use(Auth.authenticate)
 
 app.get("/", (req, res) => {
     res.redirect("api/contact")
