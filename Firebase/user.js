@@ -1,6 +1,6 @@
 const express = require ("express");
 const authenticate = require ("./authenticate.js");
-const firebaseAdmin = require ("d./firebase.mjs");
+const firebaseAdmin = require ("./firebase");
 
 const router = express.Router();
 
