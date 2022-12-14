@@ -1,7 +1,7 @@
+const express = require ("express");
+const authenticate = require ("./authenticate.js");
+const firebaseAdmin = require ("d./firebase.mjs");
 
-import express from "express";
-import authenticate from "./authenticate.mjs";
-import firebaseAdmin from "./firebase.mjs";
 
 const router = express.Router();
 

@@ -1,6 +1,6 @@
 
-import admin from "firebase-admin";
-import config from "./firebase.mjs"
+const admin = require ("firebase-admin")
+const config = require ("./firebase.js")
 
 const serviceAccount = {
   project_id: config.FIREBASE_PROJECT_ID,
