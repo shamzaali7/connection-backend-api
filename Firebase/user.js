@@ -2,14 +2,13 @@ const express = require ("express");
 const authenticate = require ("./authenticate.js");
 const firebaseAdmin = require ("d./firebase.mjs");
 
-
 const router = express.Router();
 
-router.get("/", authenticate, async (req, res) => {
+router.get("/auth", authenticate, async (req, res) => {
   res.status(200).json(req.user);
 });
 
-router.post("/", async (req, res) => {
+router.post("/auth", async (req, res) => {
   const { email, name, password } = req.body;
 
   if (!email || !name || !password) {
